@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} home {% endblock title %}
+
+{% block body %}
+
+    <!-- {{ submitform.file }} -->
+
+    {% for submitform in topic %}
+    <div class="post container">
+        <img class="fit-image" src="/media/{{ submitform.file }}" alt="Blog Cover Image">
+        <h2>{{ submitform.topic }}</h2>
+  
+        <p>Published on <span>July 21, 2023</span> by <span>Jane Smith</span></p>
+        <p>
+            {{ submitform.content | truncatechars:300 }}
+        </p>
+        <a href="/blog/{{submitform.slug}}">Read More</a>
+      </div>
+
+    {% endfor %}
+
+{% endblock body %}

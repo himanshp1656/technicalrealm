@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- 
+  <link rel="favicon" type="image/png" href="{% static  'favicon.ico' %}"> -->
+</head>
+<header>
+
+    <h1>TECHNICAL REALM</h1>
+
+</header>
+
+<nav>
+    <a href="/home">Top blogs</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/recent">recent blogs</a>
+    <form action="/search" method="get">
+        <div class="search-bar">
+            <input name="search" id="search" type="text" placeholder="Search">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</nav>
+
+{% block body %}{% endblock body %}
+
+
+
+<footer>
+    <div class="footer-buttons">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/term/">term & condition</a>
+        <a href="/about/">about</a>
+        <a href="/contact/">help</a>
+    </div>
+     &copy; 2023 BLOGNET. All rights reserved.
+
+</footer>
+
+
+</body>
+
+</html>

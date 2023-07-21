@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} home {% endblock title %}
+
+{% block body %}
+
+    <!-- {{ submitform.file }} -->
+    {% for topposts in lst %}
+    <div class="post container">
+        <img class="fit-image" src="/media/{{ topposts.top_file }}" alt="Blog Cover Image">
+        <h2>{{ topposts.top_topic }}</h2>
+  
+        <p>Published by technicalrealm</p>
+        <p>
+            {{ topposts.top_content | truncatechars:300 }}
+        </p>
+        <a href="/top_posts/{{topposts.top_slug}}">Read More</a>
+      </div>
+
+    {% endfor %}
+{% endblock body %}
+
