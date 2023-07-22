@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_vy_+6^b99-9z=@o078r7(qzkscn(op)hgj9r2bex%ci2e%5j@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,7 +127,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIR = [
     os.path.join(BASE_DIR,'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = BASE_DIR / 'static'
 APPEND_SLASH=True
 
 # MEDIA_ROOT='blognet/blog/static/image'
