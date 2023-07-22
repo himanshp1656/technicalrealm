@@ -128,7 +128,7 @@ STATICFILES_DIR = [
     os.path.join(BASE_DIR,'static'),
 ]
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 APPEND_SLASH=True
 
 # MEDIA_ROOT='blognet/blog/static/image'
