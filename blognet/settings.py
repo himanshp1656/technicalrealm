@@ -135,5 +135,8 @@ APPEND_SLASH=True
 
 # MEDIA_ROOT='blognet/blog/static/image'
 # MEDIA_URL='/image/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
+MEDIA_DIR = [
+    os.path.join(BASE_DIR,'media'),
+]
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
