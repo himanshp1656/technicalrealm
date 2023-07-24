@@ -55,7 +55,7 @@ def contactproblem(request):
         # print(name,email,phone,skills)
         ab=contactmdl(name=name,email=email,contactprob=contactprob)
         ab.save()
-    return render(request,'contact.html')
+    return HttpResponseRedirect('/contact')
 
 def search(request):
     if request.method=='GET':
