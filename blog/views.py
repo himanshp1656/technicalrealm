@@ -33,18 +33,18 @@ def about(request):
 def adminposting(request):
     return render(request,'adminposting.html')
 
-def submit(request):
-    if request.method=='POST':
-        topic=request.POST['topic']
-        file=request.POST['file']
-        content=request.POST['content']
-        justcontent=request.POST['justcontent']
-        slug=request.POST['slug']
-        # print(name,email,phone,skills)
-        sb=submitform(topic=topic,file=file,content=content,justcontent=justcontent,slug=slug)
-        sb.save()
+# def submit(request):
+#     if request.method=='POST':
+#         topic=request.POST['topic']
+#         file=request.POST['file']
+#         content=request.POST['content']
+#         justcontent=request.POST['justcontent']
+#         slug=request.POST['slug']
+#         # print(name,email,phone,skills)
+#         sb=submitform(topic=topic,file=file,content=content,justcontent=justcontent,slug=slug)
+#         sb.save()
 
-    return render(request,'index.html')
+#     return render(request,'index.html')
 
 
 def contactproblem(request):
