@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now
 from ckeditor.fields import RichTextField
 
+
 # Create your models here.
 class submitform(models.Model):
     topic= models.CharField(max_length=60)
