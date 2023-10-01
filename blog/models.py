@@ -11,7 +11,6 @@ class submitform(models.Model):
     file=models.FileField(upload_to='blog/images')
     slug=models.SlugField(unique=True, max_length=255, null=True)
     content=models.TextField(blank=True)
-
     ck = RichTextField(blank=True,null=True)
     # subheading1=models.CharField(max_length=60,blank=True)
     # content1 = models.TextField(blank=True)
