@@ -86,16 +86,6 @@ WSGI_APPLICATION = 'blognet.wsgi.application'
 # }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER':'postgres',
-#         'PASSWORD':'qCvIyq1YvlMx8rjXsqN0',
-#         'HOST':'containers-us-west-121.railway.app',
-#         'PORT':'6463',
-#     }
-# }
 
 import os
 from dotenv import load_dotenv
