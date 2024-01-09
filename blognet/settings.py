@@ -114,17 +114,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'test1',
-#         'USER':'himanshp1656',
-#         'PASSWORD':'211656032',
-#     }
-# }
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -170,7 +159,7 @@ STATICFILES_DIR = [
     os.path.join(BASE_DIR,'static'),
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 APPEND_SLASH=True
 
 # MEDIA_ROOT='blognet/blog/static/image'
