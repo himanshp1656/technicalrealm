@@ -86,17 +86,33 @@ WSGI_APPLICATION = 'blognet.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER':'postgres',
+#         'PASSWORD':'qCvIyq1YvlMx8rjXsqN0',
+#         'HOST':'containers-us-west-121.railway.app',
+#         'PORT':'6463',
+#     }
+# }
+
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
-        'USER':'postgres',
-        'PASSWORD':'qCvIyq1YvlMx8rjXsqN0',
-        'HOST':'containers-us-west-121.railway.app',
-        'PORT':'6463',
+        'USER': 'postgres',
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': 'containers-us-west-121.railway.app',
+        'PORT': '6463',
     }
 }
-
 
 # DATABASES = {
 #     'default': {
@@ -154,7 +170,7 @@ STATICFILES_DIR = [
     os.path.join(BASE_DIR,'static'),
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 APPEND_SLASH=True
 
 # MEDIA_ROOT='blognet/blog/static/image'
