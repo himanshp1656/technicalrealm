@@ -1,3 +1,7 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
+
 name: Build and deploy Python app to Azure Web App - Technicalrealm
 
 on:
@@ -5,20 +9,12 @@ on:
     branches:
       - main
   workflow_dispatch:
-    inputs:
-      name:
-        description: "Triggering User Name"
-        required: true
-        default: "himanshu"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Input Data
-        run: echo "Triggered by: ${{ github.event.inputs.name }}"
-
       - uses: actions/checkout@v2
 
       - name: Set up Python version
@@ -33,7 +29,9 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-
+        
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
