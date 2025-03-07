@@ -1,4 +1,4 @@
-name: Print Name Workflow
+name: Push Docker Image to Google Artifact Registry
 
 on:
   workflow_dispatch:
@@ -10,9 +10,45 @@ on:
         default: "User"
 
 jobs:
-  print_name:
+  push-image:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print only the name
-        run: echo "${{ github.event.inputs.name }}"
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud (User Account)
+        run: |
+          echo "ya29.a0AeXRPp4RfliMVAjHOU-quBJYMzjUeMPtcYIm5fY-EVYfHdMg6BQwlFZ62M3zQ4sKpnEYmaPgjxiuSVqVaIPnefv6_gRcoqaFRERFrke8PvOL1KGtMZ5ZR6pJgzumUE3Fzikv9fd7deaXV9rZKz5mtaqk3E8H7BSIaep9cYV77KLC4waCgYKAdESARESFQHGX2MiX7O9aZWF2pbfJy8KE_bvsQ0181" | gcloud auth activate-refresh-token shushankbhatia@gmail.com
+
+      - name: Configure Docker Authentication
+        run: gcloud auth configure-docker asia-south1-docker.pkg.dev
+
+      - name: Pull Image from Source Artifact Registry
+        run: |
+          docker pull ${{ github.event.inputs.name }}
+      - name: Modify Image 
+        run: |
+          echo "Modify your image here if needed..."
+          # Example: Running a script or copying files
+          # docker run --rm -v "$PWD:/app" ${{ github.event.inputs.name }} /bin/bash -c "echo 'Hello' > /app/test.txt"
+
+      - name: Build New Docker Image
+        run: |
+          docker build -t modified-app:latest .
+
+      - name: Sanity Check
+        run: |
+          echo "Checking built image..."
+          docker images | grep "modified-app"
+          docker run --rm modified-app:latest echo "Sanity check passed"
+
+      - name: Tag Image for Destination Artifact Registry
+        run: |
+          docker tag ${{ github.event.inputs.name }} \
+                     asia-south1-docker.pkg.dev/swarna-380521/cloud-run-source-deploy/hello-app:1.0
+
+          
+      - name: Push Docker Image
+        run: |
+          docker push asia-south1-docker.pkg.dev/swarna-380521/cloud-run-source-deploy/hello-app:1.0
